@@ -3,16 +3,18 @@ package main
 import (
 	"fmt"
 	"net/http"
-
-	"github.com/gorilla/mux"
-	_ "github.com/jinzhu/gorm/dialects/sqlite"
 	"github.com/kirannhegde/Container-Orchestrator/db"
+	"github.com/gorilla/mux"
+	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/sqlite"
+
 )
 
 func main() {
 	router := mux.NewRouter().StrictSlash(true)
-	setupRoutes(router)
 	initDBConn()
+	initClusterNodes()
+	setupRoutes(router)
 	http.ListenAndServe(":8080", router)
 }
 
@@ -23,7 +25,11 @@ func setupRoutes(r *mux.Router) {
 }
 
 func initDBConn() {
-	db.DBConn, err := gorm.Open("sqlite3", "containers.db")
+	var err error
+	db.DBConn, err = gorm.Open("sqlite3", "containers.db")
+	if err != nil {
+		panic("Failed to connect to the containers db")
+	}
 }
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
@@ -48,4 +54,8 @@ func createContainerHandler(w http.ResponseWriter, r *http.Request) {
 
 func getClusterState(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Getting cluster state...")
+}
+
+func initClusterNodes() {
+	fmt.Printf("Initializing the cluste nodes...")
 }
