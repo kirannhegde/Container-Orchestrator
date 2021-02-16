@@ -14,6 +14,7 @@ import (
 func main() {
 	router := mux.NewRouter().StrictSlash(true)
 	initDBConn()
+	defer db.DBConn.Close()
 	initClusterNodes()
 	setupRoutes(router)
 	http.ListenAndServe(":8080", router)

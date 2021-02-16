@@ -5,8 +5,9 @@ type clusterNode struct {
 	id           int
 	nodeName     string
 	nodeIpaddr   string
-	nodeCapacity int64
-	status 		 string  //holds the status of whethere a node is online or offline
+	nodeCapacity int64	//Represents the total capacity of the node
+	nodeAvailCapacity int64	//Represents the available capacity of the node. 	 
+	status 		 string //holds the status of whethere a node is online or offline
 }
 
 //ClusterNodes is a slice holding all the nodes in the cluster
