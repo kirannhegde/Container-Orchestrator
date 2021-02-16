@@ -10,6 +10,7 @@ import (
 
 )
 
+//Entry point to the container orchestrator
 func main() {
 	router := mux.NewRouter().StrictSlash(true)
 	initDBConn()
@@ -18,10 +19,13 @@ func main() {
 	http.ListenAndServe(":8080", router)
 }
 
+//RESTAPI routes should be defined here.
+//The Gorilla mux router from the Gorilla web toolkit  is used here, as it's a more sophisticated router
+//than the default router provided by the net/http package.
 func setupRoutes(r *mux.Router) {
 	r.HandleFunc("/", homeHandler)
 	r.HandleFunc("/create_container/{registry:[\\w/\\.]+}/{repository}/{image}/{replicas}", createContainerHandler).Methods("POST")
-	r.HandleFunc("/state", getClusterState).Methods("GET")
+	r.HandleFunc("/state", getClusterStateHandler).Methods("GET")
 }
 
 func initDBConn() {
@@ -33,10 +37,13 @@ func initDBConn() {
 	}
 }
 
+//Handler function for the route:"/"
 func homeHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Welcome to the home page")
 }
 
+//Handler function to handle the creation of new containers.
+//Route:"/create_container/<container_registry>/<image name>:[tag]/<number of replicas>
 func createContainerHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Creating containers...")
 	vars := mux.Vars(r)
@@ -53,10 +60,12 @@ func createContainerHandler(w http.ResponseWriter, r *http.Request) {
 
 }
 
-func getClusterState(w http.ResponseWriter, r *http.Request) {
+//Handler function to return the cluster state.
+//Route:"/state"
+func getClusterStateHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Getting cluster state...")
 }
 
 func initClusterNodes() {
-	fmt.Printf("Initializing the cluste nodes...")
+	fmt.Printf("Initializing the cluster nodes...")
 }
