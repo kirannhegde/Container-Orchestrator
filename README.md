@@ -62,6 +62,9 @@ This is to ensure that the spawning of containers is synchronized and container 
 at a time.<br />
 3)Once the containers are spawned, the container.db table is updated.<br />
 
+b)**/status GET**<br />
+Once there is a GET request to get the status of the cluster, the Docker REST API can again be used to get the required information.<br />
+
 **Spawning of containers**:
 1)All the containers can be spawned using the Docker remote API. The docker engine will have to be configured to accept REST connections.<br />
 Using the Docker REST API allows us to spawn containers on remote systems as well. Hence, its the best choice to spawn containers on <br />
