@@ -1,7 +1,7 @@
 package node
 
-//A structure which represents the attributes of a cluster node.
-type clusterNode struct {
+//ClusterNode is a structure which represents the attributes of a cluster node.
+type ClusterNode struct {
 	id           int
 	nodeName     string
 	nodeIpaddr   string
@@ -13,7 +13,7 @@ type clusterNode struct {
 //ClusterNodes is a slice holding all the nodes in the cluster
 //A slice has been used here since more items can be added to the slice
 //as and when more nodes get added to the cluster.
-type ClusterNodes []clusterNode
+type ClusterNodes []ClusterNode
 
 //Add is used to add more nodes to the cluster
 //Return: error
