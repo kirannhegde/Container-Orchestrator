@@ -73,7 +73,7 @@ However, if the required data can easily be fetched from the DB, we can do that 
 The choice between fetching data from the DB vs using the Docker REST API is dependent upon the data we want to make available<br />
 as part of the **/status** route <br />
 
-**Spawning of containers**:
+**Spawning of containers**:<br />
 1)All the containers can be spawned using the Docker remote API. The docker engine will have to be configured to accept REST connections.<br />
 Using the Docker REST API allows us to spawn containers on remote systems as well. Hence, its the best choice to spawn containers on <br />
 remote systems <br />
