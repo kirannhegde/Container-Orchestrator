@@ -1,4 +1,4 @@
-# Container-Orchestrator
+# Container Orchestrator
 A simple project in GoLang to mimic a container orchestrator
 
 ### High level design
@@ -90,5 +90,7 @@ Using interfaces helps you extend your code for other container types easily and
 -Make the solution highly available by making the solution run behind a load balancer<br />
 -Use a standard authentication package for authentication<br />
 -Use a standard logging package<br />
+-Write test cases by making use of GoLang's in built testing.T structure<br />
+-Write benchmarking functions by making use of GoLang's in built benchmarking features<br />
 
 
