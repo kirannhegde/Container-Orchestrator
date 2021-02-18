@@ -69,6 +69,9 @@ at a time.<br />
 
 b)**/status GET**<br />
 Once there is a GET request to get the status of the cluster, the Docker REST API can again be used to get the required information.<br />
+However, if the required data can easily be fetched from the DB, we can do that as well<br />
+The choice between fetching data from the DB vs using the Docker REST API is dependent upon the data we want to make available<br />
+as part of the **/status** route <br />
 
 **Spawning of containers**:
 1)All the containers can be spawned using the Docker remote API. The docker engine will have to be configured to accept REST connections.<br />
