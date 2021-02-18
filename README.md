@@ -26,6 +26,9 @@ This table will have the following fields:<br />
 	actualNumOfReplicas  -->      int<br />
 	nodeName  -->                string<br />
 	nodeIpaddr    -->            string<br />
+	
+**Important**: To ensure the consistency of the data in the database, we use a single database connection throughout the lifetime<br />
+of the RESTAPI server. This same connection is used from various go routines. SQLLite uses a global lock before writing to the db<br />
 
 I foresee the need to have multiple go routines running during the life cycle of the RESTAPI server.<br />
 
@@ -79,5 +82,6 @@ This would mean nesting of containers <br />
 -To interact with containers in container.go, make use of interfaces or rather program against interfaces.<br />
 Using interfaces helps you extend your code for other container types easily and also makes the maintenance of the code easier.<br />
 -Use interfaces to interact with sqllite db in db.go<br />
+-Make the solution highly available by making the solution run behind a load balancer<br />
 
 
