@@ -32,7 +32,7 @@ of the RESTAPI server. This same connection is used from various go routines. SQ
 
 I foresee the need to have multiple go routines running during the life cycle of the RESTAPI server.<br />
 
-***For the time being lets assume that, we have few nodes which are already part of the cluster.i.e a static list of nodes***
+***For the time being lets assume that, we have few nodes which are already part of the cluster.(i.e a static list of nodes)***
 Assuming that we already have nodes in the cluster,when the RESTAPI server is started, the following steps should be executed:<br />
 1)The connection to the SQLLite DB should be established.<br />
 The DB connection is shared by everyone in the server(**DBConn *gorm.DB, defined in db.go**)<br />
