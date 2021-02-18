@@ -83,5 +83,7 @@ This would mean nesting of containers <br />
 Using interfaces helps you extend your code for other container types easily and also makes the maintenance of the code easier.<br />
 -Use interfaces to interact with sqllite db in db.go<br />
 -Make the solution highly available by making the solution run behind a load balancer<br />
+-Use a standard authentication package for authentication<br />
+-Use a standard logging package<br />
 
 
