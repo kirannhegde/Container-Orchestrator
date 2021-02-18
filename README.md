@@ -50,6 +50,8 @@ from the SendHeartBeatToNodes() go routine. Lets call this go-routine : **Rebala
 Once a message is received from the go routine started in step #3, this go routine will inspect the<br />
 node.db table to get the list of nodes which are offline.  With this information in hand, this go routine will then<br />
 inspect the containers.db table to rebalance the affected containers.<br />
+5)We will also have additional go routines to monitor the requests for addition/deletion to the cluster<br />
+Lets call this go routine  **AddNodesToCluster()** and **DeleteNodesFromTheCluster()**<br />
 
 
 
